@@ -1,6 +1,6 @@
 import todos from './todos';
 
-describe('todos', () => {
+test('todos', () => {
   it('should add todo', () => {
     const action = {
       type: 'ADD_TODO',
@@ -21,7 +21,7 @@ describe('todos', () => {
   });
 });
 
-describe('todos', () => {
+test('todos', () => {
   it('should toggle todo', () => {
     const action = {
       type: 'TOGGLE_TODO',
