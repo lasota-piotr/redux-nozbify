@@ -3,7 +3,7 @@ import FilterButton from '../containers/FilterButton';
 
 const VisibilityFilterButtons = () => (
   <div>
-    <FilterButton filter={'SHOW_ALL'}>
+    <FilterButton filter={'SHOW_ALL'} primary>
       All
     </FilterButton>
     <FilterButton filter={'SHOW_ACTIVE'}>
