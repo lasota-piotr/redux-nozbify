@@ -3,23 +3,13 @@ import { toggleTodo, deleteTodo } from '../actions';
 import TodoList from '../components/TodoList';
 
 export const getVisibleTodos = (todos, filter) => {
-  const createNewTodos = (acc, id) => ({
-    ...acc,
-    [id]: {
-      ...todos[id],
-    },
-  });
   switch (filter) {
     case 'SHOW_ALL':
       return todos;
     case 'SHOW_COMPLETED':
-      return Object.keys(todos)
-        .filter(t => todos[t].completed)
-        .reduce(createNewTodos, {});
+      return todos.filter(t => t.completed);
     case 'SHOW_ACTIVE':
-      return Object.keys(todos)
-        .filter(t => !todos[t].completed)
-        .reduce(createNewTodos, {});
+      return todos.filter(t => !t.completed);
     default:
       return todos;
   }
