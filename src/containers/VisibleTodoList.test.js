@@ -1,6 +1,6 @@
 import { getVisibleTodos } from './VisibleTodoList';
 
-test('getVisibleTodos', () => {
+describe('getVisibleTodos', () => {
   it('should return completed todos', () => {
     const filter = 'SHOW_COMPLETED';
     const todosBefore = {
@@ -29,7 +29,7 @@ test('getVisibleTodos', () => {
   });
 });
 
-test('getVisibleTodos', () => {
+describe('getVisibleTodos', () => {
   it('should return active todos', () => {
     const filter = 'SHOW_ACTIVE';
     const todosBefore = {

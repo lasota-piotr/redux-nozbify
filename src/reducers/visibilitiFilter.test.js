@@ -1,6 +1,6 @@
 import visibilityFilter from './visibilityFilter';
 
-test('visibilityFilter', () => {
+describe('visibilityFilter', () => {
   it('should set filter', () => {
     const action = {
       type: 'SET_VISIBILITY_FILTER',
