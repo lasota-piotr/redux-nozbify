@@ -1,4 +1,5 @@
 import todo from './todo';
+import omit from '../utilities/omit';
 
 const todos = (state = {}, action) => {
   switch (action.type) {
@@ -12,6 +13,8 @@ const todos = (state = {}, action) => {
         ...state,
         ...todo(state, action),
       };
+    case 'DELETE_TODO':
+      return omit(state, [action.id]);
     default:
       return state;
   }
