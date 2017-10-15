@@ -15,7 +15,7 @@ const todo = (state = {}, action) => {
         },
       };
     default:
-      return state;
+      return {};
   }
 };
 
