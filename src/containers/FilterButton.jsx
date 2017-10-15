@@ -3,7 +3,7 @@ import { setVisibilityFilter } from '../actions/index';
 import Button from '../components/Btn';
 
 const mapStateTopProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter,
+  primary: ownProps.filter === state.visibilityFilter,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
