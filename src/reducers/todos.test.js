@@ -7,13 +7,14 @@ describe('todos', () => {
       id: 0,
       text: 'some task',
     };
-    const stateBefore = {};
-    const stateAfter = {
-      0: {
+    const stateBefore = [];
+    const stateAfter = [
+      {
+        id: 0,
         text: 'some task',
         completed: false,
       },
-    };
+    ];
 
     expect(
       todos(stateBefore, action),
@@ -27,33 +28,40 @@ describe('todos', () => {
       type: 'TOGGLE_TODO',
       id: 1,
     };
-    const stateBefore = {
-      0: {
-        text: 'some task0',
+    const stateBefore = [
+      {
+        id: 0,
+        text: 'some task',
         completed: false,
       },
-      1: {
-        text: 'some task1',
+      {
+        id: 1,
+        text: 'some task',
         completed: false,
       },
-      2: {
-        text: 'some task2',
-        completed: false,
-      } };
-    const stateAfter = {
-      0: {
-        text: 'some task0',
+      {
+        id: 2,
+        text: 'some task',
         completed: false,
       },
-      1: {
-        text: 'some task1',
+    ];
+    const stateAfter = [
+      {
+        id: 0,
+        text: 'some task',
+        completed: false,
+      },
+      {
+        id: 1,
+        text: 'some task',
         completed: true,
       },
-      2: {
-        text: 'some task2',
+      {
+        id: 2,
+        text: 'some task',
         completed: false,
       },
-    };
+    ];
 
     expect(
       todos(stateBefore, action),
@@ -67,29 +75,35 @@ describe('todos', () => {
       type: 'DELETE_TODO',
       id: 1,
     };
-    const stateBefore = {
-      0: {
-        text: 'some task0',
+    const stateBefore = [
+      {
+        id: 0,
+        text: 'some task',
         completed: false,
       },
-      1: {
-        text: 'some task1',
+      {
+        id: 1,
+        text: 'some task',
         completed: false,
       },
-      2: {
-        text: 'some task2',
-        completed: false,
-      } };
-    const stateAfter = {
-      0: {
-        text: 'some task0',
+      {
+        id: 2,
+        text: 'some task',
         completed: false,
       },
-      2: {
-        text: 'some task2',
+    ];
+    const stateAfter = [
+      {
+        id: 0,
+        text: 'some task',
         completed: false,
       },
-    };
+      {
+        id: 2,
+        text: 'some task',
+        completed: false,
+      },
+    ];
 
     expect(
       todos(stateBefore, action),

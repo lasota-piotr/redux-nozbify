@@ -1,20 +1,22 @@
 import todo from './todo';
-import omit from '../utilities/omit';
 
-const todos = (state = {}, action) => {
+const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return {
+      return [
         ...state,
-        ...todo(state, action),
-      };
+        todo(state, action),
+      ];
     case 'TOGGLE_TODO':
-      return {
-        ...state,
-        ...todo(state, action),
-      };
+      return state.map((todoEl) => {
+        if (todoEl.id !== action.id) {
+          return todoEl;
+        }
+
+        return todo(todoEl, action);
+      });
     case 'DELETE_TODO':
-      return omit(state, [action.id]);
+      return state.filter(todoEl => todoEl.id !== action.id);
     default:
       return state;
   }
