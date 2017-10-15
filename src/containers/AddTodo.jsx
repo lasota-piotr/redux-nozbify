@@ -21,9 +21,15 @@ class AddTodo extends Component {
 
   onSubmitHandle(event) {
     event.preventDefault();
+    if (this.state.currentValue === '') {
+      return;
+    }
     this.props.dispatch(
       addTodo({ text: this.state.currentValue }),
     );
+    this.setState({
+      currentValue: '',
+    });
   }
 
   render() {
