@@ -1,17 +1,16 @@
-import { connect } from 'react-redux';
-import { setVisibilityFilter } from '../actions/index';
-import Button from '../components/Btn';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const mapStateTopProps = (state, ownProps) => ({
-  primary: ownProps.filter === state.visibilityFilter,
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick() {
-    dispatch(setVisibilityFilter({ filter: ownProps.filter }));
-  },
-});
-
-const FilterButton = connect(mapStateTopProps, mapDispatchToProps)(Button);
-
+const FilterButton = ({ filter, children }) => (
+  <NavLink
+    to={`/${filter === 'all' ? '' : filter}`}
+    activeStyle={{
+      textDecoration: 'none',
+      color: 'black',
+    }}
+    exact
+  >
+    {children}
+  </NavLink>
+);
 export default FilterButton;
