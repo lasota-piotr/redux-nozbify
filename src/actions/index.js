@@ -1,14 +1,10 @@
-export const addTodo = ({ text }) => {
-  const getRandomId = () =>
-    Math.random()
-      .toString(36)
-      .substr(2, 10);
-  return {
-    type: 'ADD_TODO',
-    id: getRandomId(),
-    text,
-  };
-};
+import uuidv4 from 'uuid/v4';
+
+export const addTodo = ({ text }) => ({
+  type: 'ADD_TODO',
+  id: uuidv4(),
+  text,
+});
 
 export const toggleTodo = ({ id }) => ({
   type: 'TOGGLE_TODO',
@@ -18,9 +14,4 @@ export const toggleTodo = ({ id }) => ({
 export const deleteTodo = ({ id }) => ({
   type: 'DELETE_TODO',
   id,
-});
-
-export const setVisibilityFilter = ({ filter }) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter,
 });
