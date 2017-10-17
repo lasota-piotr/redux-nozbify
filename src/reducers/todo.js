@@ -8,9 +8,8 @@ const todo = (state = {}, action) => {
       };
     case 'TOGGLE_TODO':
       return {
-        id: state.id,
+        ...state,
         completed: !state.completed,
-        text: state.text,
       };
     default:
       return state;
