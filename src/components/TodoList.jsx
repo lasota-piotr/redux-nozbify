@@ -4,11 +4,10 @@ import Todo from './Todo';
 
 const TodoList = ({ todos, onTodoClick, onDeleteTodoClick }) => (
   <ul>
-    {Object.keys(todos).map(todoId => (
+    {todos.map(t => (
       <Todo
-        key={todoId}
-        id={todoId}
-        {...todos[todoId]}
+        key={t.id}
+        {...t}
         onTodoClick={onTodoClick}
         onDeleteTodoClick={onDeleteTodoClick}
       />
