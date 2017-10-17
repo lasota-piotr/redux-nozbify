@@ -4,10 +4,10 @@ import VisibleTodoList from './containers/VisibleTodoList';
 import VisibilityFilterButtons from './components/VisibilityFilterButtons';
 import './App.css';
 
-const App = () => (
+const App = ({ match }) => (
   <div>
     <AddTodo />
-    <VisibleTodoList />
+    <VisibleTodoList filter={match.params.filter || 'all'} />
     <VisibilityFilterButtons />
   </div>
 );

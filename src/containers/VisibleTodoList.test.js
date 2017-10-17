@@ -2,7 +2,7 @@ import { getVisibleTodos } from './VisibleTodoList';
 
 describe('getVisibleTodos', () => {
   it('should return completed todos', () => {
-    const filter = 'SHOW_COMPLETED';
+    const filter = 'completed';
     const todosBefore = [
       {
         id: 0,
@@ -35,7 +35,7 @@ describe('getVisibleTodos', () => {
 
 describe('getVisibleTodos', () => {
   it('should return active todos', () => {
-    const filter = 'SHOW_ACTIVE';
+    const filter = 'active';
     const todosBefore = [
       {
         id: 0,
