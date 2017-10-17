@@ -25,7 +25,7 @@ class AddTodo extends Component {
       return;
     }
     this.props.dispatch(
-      addTodo({ text: this.state.currentValue }),
+      addTodo(this.state.currentValue),
     );
     this.setState({
       currentValue: '',
