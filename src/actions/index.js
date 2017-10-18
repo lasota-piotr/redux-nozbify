@@ -1,4 +1,5 @@
 import uuidv4 from 'uuid/v4';
+import * as api from '../api';
 
 export const addTodo = text => ({
   type: 'ADD_TODO',
@@ -15,3 +16,15 @@ export const deleteTodo = id => ({
   type: 'DELETE_TODO',
   id,
 });
+
+const receiveTodos = (filter, response) => ({
+  type: 'RECEIVE_TODOS',
+  filter,
+  response,
+});
+
+export const fetchTodos = filter => (
+  api.fetchTodos(filter).then(response =>
+    receiveTodos(filter, response),
+  )
+);
