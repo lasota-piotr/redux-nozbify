@@ -1,11 +1,9 @@
 import logger from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
-import throttle from 'lodash/throttle';
 import todoApp from './reducers/todoApp';
-import { loadState, saveState } from './localStorage';
 
 const configureStore = () => {
-  const persistedState = loadState();
+  const persistedState = {};
 
   /* eslint-disable no-underscore-dangle */
   const middleware = [logger];
@@ -17,15 +15,6 @@ const configureStore = () => {
     composeEnhancers(applyMiddleware(...middleware)),
   );
   /* eslint-enable */
-
-  store.subscribe(
-    throttle(() => {
-      saveState({
-        todos: store.getState().todos,
-      });
-    }),
-    1000,
-  );
 
   return store;
 };
