@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../actions';
 import TodoList from '../components/TodoList';
-import { getVisibleTodos } from '../reducers/todoApp';
+import { getVisibleTodos } from '../reducers';
 
 class VisibleTodoList extends Component {
   componentDidMount() {

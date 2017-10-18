@@ -1,7 +1,7 @@
 import logger from 'redux-logger';
 import promise from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
-import todoApp from './reducers/todoApp';
+import todos from './reducers';
 
 const configureStore = () => {
   const persistedState = {};
@@ -11,7 +11,7 @@ const configureStore = () => {
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   return createStore(
-    todoApp,
+    todos,
     persistedState,
     composeEnhancers(applyMiddleware(...middleware)),
   );
