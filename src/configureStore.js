@@ -1,5 +1,5 @@
 import logger from 'redux-logger';
-import promise from 'redux-promise';
+import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import todos from './reducers';
 
@@ -7,7 +7,7 @@ const configureStore = () => {
   const persistedState = {};
 
   /* eslint-disable no-underscore-dangle */
-  const middleware = [promise, logger];
+  const middleware = [thunk, logger];
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   return createStore(
