@@ -57,3 +57,10 @@ export const toggleTodo = id =>
     todo.completed = !todo.completed;
     return todo;
   });
+
+export const deleteTodo = id =>
+  delay(500).then(() => {
+    const todo = fakeDatabase.todos.find(t => t.id === id);
+    fakeDatabase.todos = fakeDatabase.todos.filter(t => t.id !== id);
+    return todo;
+  });

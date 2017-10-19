@@ -14,6 +14,11 @@ const createList = (filter) => {
       : state;
   };
 
+  const handleDelete = (state, action) => {
+    const { result: deleteId } = action.response;
+    return state.filter(id => id !== deleteId);
+  };
+
   const ids = (state = [], action) => {
     switch (action.type) {
       case 'FETCH_TODOS_SUCCESS':
@@ -26,6 +31,8 @@ const createList = (filter) => {
           : state;
       case 'TOGGLE_TODO_SUCCESS':
         return handleToggle(state, action);
+      case 'DELETE_TODO_SUCCESS':
+        return handleDelete(state, action);
       default:
         return state;
     }
