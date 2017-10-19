@@ -1,12 +1,14 @@
-import uuidv4 from 'uuid/v4';
 import * as api from '../api';
 import { getIsFetching } from '../reducers';
 
-export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: uuidv4(),
-  text,
-});
+export const addTodo = text => dispatch =>
+  api.addTodo(text).then((response) => {
+    dispatch({
+      type: 'ADD_TODO_SUCCESS',
+      response,
+    });
+  });
+
 
 export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
@@ -36,12 +38,12 @@ export const fetchTodos = filter => (dispatch, getState) => {
         response,
       });
     },
-    error => {
+    (error) => {
       dispatch({
         type: 'FETCH_TODOS_FAILURE',
         filter,
         message: error.message || 'Something went wrong.',
       });
-    }
+    },
   );
 };
