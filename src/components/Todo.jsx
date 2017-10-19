@@ -11,7 +11,7 @@ const Todo = ({ id, onTodoClick, completed, text, onDeleteTodoClick }) => {
         style={{
           textDecoration: completed ? 'line-through' : 'none',
         }}
-      >{text}</span>
+      >{text} </span>
       <button onClick={onClickDeleteButton}>X</button>
     </li>
   );

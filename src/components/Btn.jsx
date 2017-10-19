@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import styleVariables from '../constants/styleVariables';
 
-const StyledButton= styled.button`
+const StyledButton = styled.button`
   /**
    * 1. Allow us to style box model properties.
    * 2. Line different sized buttons up a little nicer.

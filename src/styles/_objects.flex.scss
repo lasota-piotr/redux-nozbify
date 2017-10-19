@@ -1,0 +1,55 @@
+/* ==========================================================================
+   #FLEX
+   ========================================================================== */
+
+/**
+ * Object based on the flexible box layout model.
+ */
+
+.o-flex {
+  display: flex;
+}
+
+.o-flex__child {
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Parent element variants
+   ========================================================================== */
+
+.o-flex--wrap   { flex-wrap: wrap; }
+.o-flex--column { flex-direction: column; }
+
+
+/**
+ * Justify-content
+ */
+
+.o-flex--justify-content-start   { justify-content: start; }
+.o-flex--justify-content-end     { justify-content: end; }
+.o-flex--justify-content-center  { justify-content: center; }
+.o-flex--justify-content-between { justify-content: space-between; }
+.o-flex--justify-content-around  { justify-content: space-around; }
+
+
+/**
+ * Align-items
+ */
+
+.o-flex--align-items-start    { align-items: start; }
+.o-flex--align-items-end      { align-items: end; }
+.o-flex--align-items-center   { align-items: center; }
+.o-flex--align-items-baseline { align-items: baseline; }
+.o-flex--align-items-stretch  { align-items: stretch; }
+
+
+/* Child element
+   ========================================================================== */
+
+.o-flex__child--align-self-start    { align-self: start; }
+.o-flex__child--align-self-end      { align-self: end; }
+.o-flex__child--align-self-center   { align-self: center; }
+.o-flex__child--align-self-baseline { align-self: baseline; }
+.o-flex__child--align-self-stretch  { align-self: stretch; }
