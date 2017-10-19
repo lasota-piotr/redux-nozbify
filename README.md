@@ -6,7 +6,7 @@ second [Redux course](https://egghead.io/courses/building-react-applications-wit
 on Egghead.io with added some features.
 
 ## Demo
-[Demo](https://build-wvcqwvadqk.now.sh)
+[Demo](https://redux-nozbify-vfedayspak.now.sh/)
 
 ## Features
 * Adding tasks
