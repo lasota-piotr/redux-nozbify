@@ -20,4 +20,3 @@ on Egghead.io with added some features.
 * [React Router](https://github.com/ReactTraining/react-router)
 * [Redux](https://github.com/reactjs/redux)
 * [Normalizr](https://github.com/paularmstrong/normalizr)
-* [Styled-components](https://github.com/styled-components/styled-components)
