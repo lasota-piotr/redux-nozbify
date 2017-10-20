@@ -29,7 +29,7 @@ const createList = (filter) => {
       case 'FETCH_TODOS_SUCCESS':
         return filter === action.filter ? action.response.result : state;
       case 'ADD_TODO_SUCCESS':
-        return filter !== 'completed'
+        return (filter !== 'completed' && filter !== 'priority')
           ? [...state, action.response.result]
           : state;
       case 'TOGGLE_TODO_SUCCESS':
