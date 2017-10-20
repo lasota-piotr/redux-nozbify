@@ -1,21 +1,29 @@
-const unitFactorTiny = 0.25;
-const unitFactorSmall = 0.5;
-const unitFactorLarge = 2;
-const unitFactorHuge = 4;
-
 const globalLineHeight = 24;
 
 const styleVariables = {
+
   globalFontSize: '16px',
   globalLineHeight: `${globalLineHeight}px`,
 
+  // units
   unit: `${globalLineHeight}px`,
-  unitTiny: `${globalLineHeight * unitFactorTiny}px`,
-  unitSmall: `${globalLineHeight * unitFactorSmall}px`,
-  unitLarge: `${globalLineHeight * unitFactorLarge}px`,
-  unitHuge: `${globalLineHeight * unitFactorHuge}px`,
+  unitTiny: `${globalLineHeight * 0.25}px`,
+  unitSmall: `${globalLineHeight * 0.5}px`,
+  unitLarge: `${globalLineHeight * 2}px`,
+  unitHuge: `${globalLineHeight * 4}px`,
   globalRadius: '3px',
   globalTransition: 'all 300ms ease-in-out',
+
+
+  // colors
+  colorPrimary: '#47b8e0',
+  colorSecondary: '#ffc952',
+  colorTertiary: '#ff7473',
+
+  colorGrayDark: '#34314c',
+  colorGray: '#7b8294',
+  colorGrayLight: '#bcc5d9',
+  colorGrayVeryLight: '#d7e0f4',
 };
 
 export default styleVariables;
