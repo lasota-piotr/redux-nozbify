@@ -4,14 +4,19 @@ const createList = (filter) => {
   const handleToggle = (state, action) => {
     const { result: toggleId, entities } = action.response;
     const { completed } = entities.todos[toggleId];
-    const shouldRemove = (
+    const shouldRemove =
       (completed && filter === 'active') ||
-      (!completed && filter === 'completed')
-    );
+      (!completed && filter === 'completed');
 
-    return shouldRemove
-      ? state.filter(id => id !== toggleId)
-      : state;
+    return shouldRemove ? state.filter(id => id !== toggleId) : state;
+  };
+
+  const handleTogglePriority = (state, action) => {
+    const { result: togglePriorityId, entities } = action.response;
+    const { priority } = entities.todos[togglePriorityId];
+    const shouldRemove = !priority && filter === 'priority';
+
+    return shouldRemove ? state.filter(id => id !== togglePriorityId) : state;
   };
 
   const handleDelete = (state, action) => {
@@ -22,15 +27,15 @@ const createList = (filter) => {
   const ids = (state = [], action) => {
     switch (action.type) {
       case 'FETCH_TODOS_SUCCESS':
-        return filter === action.filter
-          ? action.response.result
-          : state;
+        return filter === action.filter ? action.response.result : state;
       case 'ADD_TODO_SUCCESS':
         return filter !== 'completed'
           ? [...state, action.response.result]
           : state;
       case 'TOGGLE_TODO_SUCCESS':
         return handleToggle(state, action);
+      case 'TOGGLE_PRIORITY_SUCCESS':
+        return handleTogglePriority(state, action);
       case 'DELETE_TODO_SUCCESS':
         return handleDelete(state, action);
       default:

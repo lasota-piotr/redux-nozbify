@@ -6,6 +6,7 @@ const listByFilter = combineReducers({
   all: createList('all'),
   active: createList('active'),
   completed: createList('completed'),
+  priority: createList('priority'),
 });
 
 const todos = combineReducers({
