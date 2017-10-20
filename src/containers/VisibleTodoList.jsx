@@ -29,6 +29,7 @@ class VisibleTodoList extends Component {
       todos,
       isFetching,
       errorMessage,
+      togglePriority,
     } = this.props;
     if (isFetching && !todos.length) {
       return <p>Loading...</p>;
@@ -44,6 +45,7 @@ class VisibleTodoList extends Component {
       <TodoList
         todos={todos}
         onTodoClick={toggleTodo}
+        onPriorityClick={togglePriority}
         onDeleteTodoClick={deleteTodo}
       />
     );

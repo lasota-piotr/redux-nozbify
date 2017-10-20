@@ -20,6 +20,14 @@ export const toggleTodo = id => dispatch =>
     });
   });
 
+export const togglePriority = id => dispatch =>
+  api.togglePriority(id).then((response) => {
+    dispatch({
+      type: 'TOGGLE_PRIORITY_SUCCESS',
+      response: normalize(response, schema.todo),
+    });
+  });
+
 export const deleteTodo = id => dispatch =>
   api.deleteTodo(id).then((response) => {
     dispatch({

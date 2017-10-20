@@ -6,16 +6,19 @@ const fakeDatabase = {
       id: uuidv4(),
       text: 'hey',
       completed: true,
+      priority: false,
     },
     {
       id: uuidv4(),
       text: 'ho',
       completed: true,
+      priority: false,
     },
     {
       id: uuidv4(),
       text: 'let’s go',
       completed: false,
+      priority: false,
     },
   ],
 };
@@ -62,5 +65,12 @@ export const deleteTodo = id =>
   delay(500).then(() => {
     const todo = fakeDatabase.todos.find(t => t.id === id);
     fakeDatabase.todos = fakeDatabase.todos.filter(t => t.id !== id);
+    return todo;
+  });
+
+export const togglePriority = id =>
+  delay(500).then(() => {
+    const todo = fakeDatabase.todos.find(t => t.id === id);
+    todo.priority = !todo.priority;
     return todo;
   });

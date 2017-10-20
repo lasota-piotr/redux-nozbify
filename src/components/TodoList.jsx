@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Todo from './Todo';
 
-const TodoList = ({ todos, onTodoClick, onDeleteTodoClick }) => (
+const TodoList = ({ todos, onTodoClick, onDeleteTodoClick, onPriorityClick }) => (
   <ul>
     {todos.map(t => (
       <Todo
@@ -10,6 +10,7 @@ const TodoList = ({ todos, onTodoClick, onDeleteTodoClick }) => (
         {...t}
         onTodoClick={onTodoClick}
         onDeleteTodoClick={onDeleteTodoClick}
+        onPriorityClick={onPriorityClick}
       />
     ))}
   </ul>
