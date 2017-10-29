@@ -17,13 +17,25 @@ const styleVariables = {
 
   // colors
   colorPrimary: '#47b8e0',
+  colorPrimaryDark: '#2b617e',
   colorSecondary: '#ffc952',
+  colorSecondaryDark: '#ac853b',
   colorTertiary: '#ff7473',
+  colorTertiaryDark: '#793a39',
 
-  colorGrayDark: '#34314c',
+  colorGrayVeryDark: '#1a111e',
+  colorGrayDark: '#343137',
   colorGray: '#7b8294',
   colorGrayLight: '#bcc5d9',
   colorGrayVeryLight: '#d7e0f4',
 };
 
-export default styleVariables;
+const styleVariablesElements = {
+  // colors
+  colorText: styleVariables.colorGrayDark,
+};
+
+export default {
+  ...styleVariables,
+  ...styleVariablesElements,
+};
