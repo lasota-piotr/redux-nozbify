@@ -4,6 +4,7 @@ import Star from './Star';
 
 const Todo = ({
   id,
+  projectId,
   onTodoClick,
   completed,
   priority,
@@ -29,7 +30,7 @@ const Todo = ({
           textDecoration: completed ? 'line-through' : 'none',
         }}
       >
-        {text}{' '}
+        {text}{' '}{projectId}
       </span>
 
       <button onClick={onClickDeleteButton}>X</button>

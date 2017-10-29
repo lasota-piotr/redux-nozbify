@@ -1,4 +1,4 @@
-const byId = (state = {}, action) => {
+const todosById = (state = {}, action) => {
   if (action.response) {
     return {
       ...state,
@@ -9,7 +9,7 @@ const byId = (state = {}, action) => {
   return state;
 };
 
-export default byId;
+export default todosById;
 
 
 export const getTodo = (state, id) => state[id];

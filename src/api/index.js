@@ -7,18 +7,31 @@ const fakeDatabase = {
       text: 'hey',
       completed: true,
       priority: false,
+      projectId: '2501a2bf-e176-4c2f-b4f4-8b25266cdedb',
     },
     {
       id: uuidv4(),
       text: 'ho',
       completed: true,
       priority: false,
+      projectId: '2501a2bf-e176-4c2f-b4f4-8b25266cdedb',
     },
     {
       id: uuidv4(),
       text: 'let’s go',
       completed: false,
       priority: false,
+      projectId: 'aab4edaf-b179-4bad-99d7-567fc925742d',
+    },
+  ],
+  projects: [
+    {
+      id: '2501a2bf-e176-4c2f-b4f4-8b25266cdedb',
+      name: 'Inbox',
+    },
+    {
+      id: 'aab4edaf-b179-4bad-99d7-567fc925742d',
+      name: 'Learning Redux',
     },
   ],
 };
@@ -41,6 +54,18 @@ export const fetchTodos = filter =>
       default:
         throw new Error(`Unknown filter: ${filter}`);
     }
+  });
+
+export const fetchProjectTodo = projectId =>
+  delay(500).then(() => {
+    if (Math.random() > 0.95) throw new Error('NOPE!');
+    return fakeDatabase.todos.filter(t => !t.projectId !== projectId);
+  });
+
+export const fetchProjects = () =>
+  delay(500).then(() => {
+    if (Math.random() > 0.95) throw new Error('NOPE!');
+    return fakeDatabase.projects;
   });
 
 export const addTodo = text =>

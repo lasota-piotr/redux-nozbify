@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr';
 import * as schema from './schema';
 import * as api from '../api';
-import { getIsFetching } from '../reducers';
+import { getIsFetching } from '../reducers/todos/todos';
 
 export const addTodo = text => dispatch =>
   api.addTodo(text).then((response) => {
@@ -58,6 +58,27 @@ export const fetchTodos = filter => (dispatch, getState) => {
       dispatch({
         type: 'FETCH_TODOS_FAILURE',
         filter,
+        message: error.message || 'Something went wrong.',
+      });
+    },
+  );
+};
+
+export const fetchProjects = () => (dispatch) => {
+  dispatch({
+    type: 'FETCH_PROJECTS_REQUEST',
+  });
+
+  return api.fetchProjects().then(
+    (response) => {
+      dispatch({
+        type: 'FETCH_PROJECTS_SUCCESS',
+        response: normalize(response, schema.arrayOfProjects),
+      });
+    },
+    (error) => {
+      dispatch({
+        type: 'FETCH_PROJECTS_FAILURE',
         message: error.message || 'Something went wrong.',
       });
     },
