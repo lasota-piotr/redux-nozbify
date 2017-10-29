@@ -92,7 +92,7 @@ const StyledButton = styled.button`
     }
   `}
   
-  ${props => props.ghost && props.small &&css`
+  ${props => props.ghost && props.small && css`
     padding: calc(${styleVariables.unitTiny} - 2px) calc(${styleVariables.unitSmall} - 2px);
   `}
   
