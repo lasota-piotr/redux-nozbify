@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import todosById, * as fromById from './todosById';
+import todosById, * as fromTodosById from './todosById';
+import * as fromProjectsById from '../projects/projectsById';
 import createList, * as fromList from './createList';
 
 const listByFilter = combineReducers({
@@ -19,7 +20,15 @@ export default todos;
 // selectors
 export const getVisibleTodos = (state, filter) => {
   const ids = fromList.getIds(state.todos.listByFilter[filter]);
-  return ids.map(id => fromById.getTodo(state.todos.byId, id));
+  return ids.map(id => fromTodosById.getTodo(state.todos.byId, id))
+    .map(todo => ({
+      ...todo,
+      projectName: fromProjectsById.getProjectName(state.projects.byId, todo.projectId),
+    }))
+    .map((todo) => {
+      console.log(todo);
+      return todo;
+    });
 };
 
 export const getIsFetching = (state, filter) =>

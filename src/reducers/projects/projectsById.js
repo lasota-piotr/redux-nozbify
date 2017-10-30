@@ -10,3 +10,6 @@ const projectsById = (state = {}, action) => {
 };
 
 export default projectsById;
+
+
+export const getProjectName = (state, id) => (!!state[id] && state[id].name) || null;

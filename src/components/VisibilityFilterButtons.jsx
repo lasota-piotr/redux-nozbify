@@ -1,17 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import FilterButton from '../containers/FilterButton';
 import Button from './Button';
 
-const VisibilityFilterButtons = () => (
+const VisibilityFilterButtons = ({ filters }) => (
   <div>
-    <FilterButton filter={'all'}>All</FilterButton>{' '}
-    <FilterButton filter={'active'}>Active</FilterButton>{' '}
-    <FilterButton filter={'completed'}>Completed</FilterButton>{' '}
-    <FilterButton filter={'priority'}>Priority</FilterButton>
+    <div className="o-flex o-flex--column">
+      {filters.map(filter => (
+        <FilterButton key={filter} filter={filter}>{filter}</FilterButton>
+      ))}
+    </div>
     <div>
       <Button ghost muted small className="u-margin-top">Show completed</Button>
     </div>
   </div>
 );
 
-export default VisibilityFilterButtons;
+const mapStateToProps = ({ todos }) => ({
+  filters: Object.keys(todos.listByFilter),
+});
+
+export default connect(mapStateToProps)(VisibilityFilterButtons);
