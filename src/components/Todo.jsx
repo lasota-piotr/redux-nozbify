@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Star from './Star';
+import Check from './Check';
 
 const Todo = ({
   id,
@@ -23,16 +24,11 @@ const Todo = ({
   };
   return (
     <li>
-      <Star onClickHandle={onClickPriorityButton} isActive={priority} />
-      <span
-        onClick={onClickTodo}
-        style={{
-          textDecoration: completed ? 'line-through' : 'none',
-        }}
-      >
+      <Check onClickHandle={onClickTodo} isActive={completed} />
+      <span>
         {text}{' '}{projectName}
       </span>
-
+      <Star onClickHandle={onClickPriorityButton} isActive={priority} />
       <button onClick={onClickDeleteButton}>X</button>
     </li>
   );
