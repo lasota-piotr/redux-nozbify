@@ -5,6 +5,7 @@ import styleVariables from '../constants/styleVariables';
 
 const StyledStar = styled.span`
   color: ${styleVariables.colorPrimary};
+  cursor: pointer;
 `;
 const Star = ({ onClickHandle, isActive }) => {
   const starSize = 40;

@@ -5,6 +5,7 @@ import styleVariables from '../constants/styleVariables';
 
 const StyledCheck = styled.span`
   color: ${styleVariables.colorPrimary};
+  cursor: pointer;
 `;
 const Check = ({ onClickHandle, isActive }) => {
   const iconSize = 40;
