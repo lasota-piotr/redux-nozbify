@@ -23,8 +23,9 @@ TodoList.propTypes = {
       text: PropTypes.string.isRequired,
       completed: PropTypes.bool.isRequired,
     }),
-  ),
+  ).isRequired,
   onTodoClick: PropTypes.func.isRequired,
+  onPriorityClick: PropTypes.func.isRequired,
   onDeleteTodoClick: PropTypes.func.isRequired,
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FetchError = ({ message, onRetry }) => (
   <div>
@@ -6,5 +7,11 @@ const FetchError = ({ message, onRetry }) => (
     <button onClick={onRetry}>Retry</button>
   </div>
 );
+
+FetchError.propTypes = {
+  onRetry: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+};
+
 
 export default FetchError;

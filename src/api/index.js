@@ -63,7 +63,7 @@ export const fetchProjectTodo = projectId =>
   });
 
 export const fetchProjects = () =>
-  delay(10000).then(() => {
+  delay(500).then(() => {
     if (Math.random() > 0.95) throw new Error('NOPE!');
     return fakeDatabase.projects;
   });

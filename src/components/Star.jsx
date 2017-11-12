@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MdStarOutline, MdStar } from 'react-icons/lib/md/index';
 import styled from 'styled-components';
 import styleVariables from '../constants/styleVariables';
@@ -18,4 +19,12 @@ const Star = ({ onClickHandle, isActive }) => {
   );
 };
 
+Star.propTypes = {
+  onClickHandle: PropTypes.func.isRequired,
+  isActive: PropTypes.bool,
+};
+
+Star.defaultProps = {
+  isActive: false,
+};
 export default Star;

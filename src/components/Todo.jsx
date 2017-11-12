@@ -19,7 +19,7 @@ const TodoContentItem = styled.div`
   
   ${({ full }) => full && css`
      flex-grow: 1;
-	`}
+  `}
 `;
 
 const Todo = ({
@@ -56,6 +56,21 @@ const Todo = ({
       <button onClick={onClickDeleteButton}>X</button>
     </StyledTodo>
   );
+};
+
+Todo.propTypes = {
+  id: PropTypes.string.isRequired,
+  projectName: PropTypes.string.isRequired,
+  onTodoClick: PropTypes.func.isRequired,
+  completed: PropTypes.bool,
+  priority: PropTypes.bool,
+  text: PropTypes.string.isRequired,
+  onDeleteTodoClick: PropTypes.func.isRequired,
+  onPriorityClick: PropTypes.func.isRequired,
+};
+Todo.defaultProps = {
+  completed: false,
+  priority: false,
 };
 
 export default Todo;

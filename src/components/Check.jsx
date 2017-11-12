@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/lib/md/index';
 import styled from 'styled-components';
 import styleVariables from '../constants/styleVariables';
@@ -16,6 +17,15 @@ const Check = ({ onClickHandle, isActive }) => {
       {isActive ? <MdCheckBox size={iconSize} /> : <MdCheckBoxOutlineBlank size={iconSize} />}
     </StyledCheck>
   );
+};
+
+Check.propTypes = {
+  onClickHandle: PropTypes.func.isRequired,
+  isActive: PropTypes.bool,
+};
+
+Check.defaultProps = {
+  isActive: false,
 };
 
 export default Check;

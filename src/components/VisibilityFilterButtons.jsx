@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FilterButton from '../containers/FilterButton';
 import Button from './Button';
@@ -15,6 +16,12 @@ const VisibilityFilterButtons = ({ filters }) => (
     </div>
   </div>
 );
+
+VisibilityFilterButtons.propTypes = {
+  filters: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired,
+};
 
 const mapStateToProps = ({ todos }) => ({
   filters: Object.keys(todos.listByFilter),
